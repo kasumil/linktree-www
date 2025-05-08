@@ -1,13 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import { Project } from "@/types/project";
+import useProjectModal from "@/store";
 
 export default function ProjectList({ projects }: { projects: Project[] }) {
+  const { onOpen } = useProjectModal();
+
   return (
     <div className="space-y-4">
-      {projects.map((project) => (
+      {projects?.map((project) => (
         <div
           key={project.id}
           className="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden border border-gray-200 dark:border-gray-700"
+          onClick={() => onOpen(project)}
         >
           <div className="flex flex-col md:flex-row items-center p-4 gap-4">
             <div className="flex flex-row md:flex-col gap-2 w-full md:w-32 md:h-32 justify-center items-center">

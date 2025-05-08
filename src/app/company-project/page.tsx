@@ -1,7 +1,6 @@
 import { Project } from "@/types/project";
 import Backbutton from "@/components/buttons/Backbutton";
-import ProjectList from "@/components/projects/ProjectList";
-import ProjectModal from "@/components/ProjectModal";
+import ProjectsView from "@/components/projects/ProjectsView";
 
 async function getProjects(): Promise<Project[]> {
   try {
@@ -34,10 +33,7 @@ export default async function Page() {
         {projects.length === 0 ? (
           <div className="text-center text-gray-500 dark:text-gray-400">프로젝트가 없습니다.</div>
         ) : (
-          <>
-            <ProjectList projects={projects} />
-            {/* <ProjectModal project={}, isOpen={}, onClose={} /> */}
-          </>
+          <ProjectsView projects={projects} />
         )}
       </main>
     </div>

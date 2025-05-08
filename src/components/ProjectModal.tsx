@@ -1,4 +1,5 @@
 "use client";
+
 import { ProjectModalProps } from "@/types/project";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -40,7 +41,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
       >
         <div className="p-6">
           <div className="flex justify-between items-start mb-6">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">{project.title}</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">{project?.title}</h2>
             <button
               onClick={onClose}
               className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
@@ -51,9 +52,24 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             </button>
           </div>
 
-          <div className="relative h-64 mb-6">
-            {project.imageUrl ? (
-              <Image src={project.imageUrl} alt={project.title} fill className="object-cover rounded-lg" />
+          <div className="relative h-fit mb-6">
+            {project?.media ? (
+              <div className="flex overflow-x-auto gap-4 snap-x pb-2">
+                {project?.media?.map((media, index) => (
+                  <div key={index} className="flex-shrink-0 w-full h-100 relative snap-center">
+                    {media.media_type === "image" ? (
+                      <Image
+                        src={media.media_url}
+                        alt={`project-media-${index}`}
+                        fill
+                        className="h-full object-contain rounded-lg"
+                      />
+                    ) : media.media_type === "video" ? (
+                      <video src={media.media_url} controls className="w-full h-full object-cover rounded-lg" />
+                    ) : null}
+                  </div>
+                ))}
+              </div>
             ) : (
               <div className="w-full h-full bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
                 <span className="text-gray-500 dark:text-gray-400">이미지 없음</span>
@@ -63,34 +79,35 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
 
           <div className="space-y-4">
             <div className="flex items-center text-gray-600 dark:text-gray-300">
-              <span className="mr-4">{project.period}</span>
-              <span>{project.role}</span>
+              <span className="mr-4">{project?.period}</span>
+              {project?.period && project?.role && <span className="mr-4">|</span>}
+              <span>{project?.role}</span>
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {project.techStack.map((tech, index) => (
+              {project?.techStack?.map((tech, index) => (
                 <span
                   key={index}
                   className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-sm"
                 >
-                  {tech}
+                  {tech?.name}
                 </span>
               ))}
             </div>
 
-            <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
+            <p className="text-gray-600 dark:text-gray-300">{project?.description}</p>
 
-            {project.content && (
+            {project?.content && (
               <div className="mt-4">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">상세 내용</h3>
-                <p className="text-gray-600 dark:text-gray-300 whitespace-pre-line">{project.content}</p>
+                <p className="text-gray-600 dark:text-gray-300 whitespace-pre-line">{project?.content}</p>
               </div>
             )}
 
-            {project.link && (
+            {project?.link && (
               <div className="mt-6">
                 <a
-                  href={project.link}
+                  href={project?.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
