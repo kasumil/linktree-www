@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="60" font-family="Arial" font-size="24" text-anchor="middle" fill="#333" font-weight="bold">웹 시스템 아키텍처 다이어그램</text>
+  
+  <!-- Combined Frontend Component -->
+  <rect x="50" y="100" width="200" height="250" fill="#e3f2fd" stroke="#1565c0" stroke-width="2" rx="10" ry="10"/>
+  <text x="150" y="130" font-family="Arial" font-size="18" text-anchor="middle" fill="#1565c0" font-weight="bold">프론트엔드</text>
+  
+  <!-- User Component -->
+  <rect x="70" y="150" width="160" height="80" fill="#bbdefb" stroke="#1565c0" stroke-width="1" rx="5" ry="5"/>
+  <text x="150" y="195" font-family="Arial" font-size="16" text-anchor="middle" fill="#1565c0" font-weight="bold">유저단</text>
+  
+  <!-- API Component -->
+  <rect x="70" y="250" width="160" height="80" fill="#e1f5fe" stroke="#0277bd" stroke-width="1" rx="5" ry="5"/>
+  <text x="150" y="295" font-family="Arial" font-size="16" text-anchor="middle" fill="#0277bd" font-weight="bold">API</text>
+  
+  <!-- Internal Vertical Communication -->
+  <line x1="150" y1="230" x2="150" y2="250" stroke="#ff5252" stroke-width="2"/>
+  <polygon points="150,250 145,240 155,240" fill="#ff5252"/>
+  <line x1="130" y1="250" x2="130" y2="230" stroke="#ff5252" stroke-width="2"/>
+  <polygon points="130,230 125,240 135,240" fill="#ff5252"/>
+  <text x="175" y="240" font-family="Arial" font-size="12" text-anchor="middle" fill="#ff5252">내부통신</text>
+  
+  <!-- Node Component -->
+  <rect x="350" y="175" width="150" height="100" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2" rx="10" ry="10"/>
+  <text x="425" y="225" font-family="Arial" font-size="18" text-anchor="middle" fill="#2e7d32" font-weight="bold">Node</text>
+  
+  <!-- Database Component -->
+  <rect x="600" y="175" width="120" height="100" fill="#e8eaf6" stroke="#3f51b5" stroke-width="2" rx="10" ry="10"/>
+  <text x="660" y="225" font-family="Arial" font-size="18" text-anchor="middle" fill="#3f51b5" font-weight="bold">DB</text>
+  
+  <!-- Frontend to Node Communication -->
+  <line x1="250" y1="210" x2="340" y2="210" stroke="#ff5252" stroke-width="2"/>
+  <polygon points="340,210 330,205 330,215" fill="#ff5252"/>
+  <line x1="250" y1="240" x2="340" y2="240" stroke="#ff5252" stroke-width="2"/>
+  <polygon points="250,240 260,235 260,245" fill="#ff5252"/>
+  <text x="295" y="190" font-family="Arial" font-size="12" text-anchor="middle" fill="#ff5252">양방향통신</text>
+  
+  <!-- Node to DB Communication -->
+  <line x1="500" y1="210" x2="590" y2="210" stroke="#ff5252" stroke-width="2"/>
+  <polygon points="590,210 580,205 580,215" fill="#ff5252"/>
+  <line x1="500" y1="240" x2="590" y2="240" stroke="#ff5252" stroke-width="2"/>
+  <polygon points="500,240 510,235 510,245" fill="#ff5252"/>
+  <text x="545" y="190" font-family="Arial" font-size="12" text-anchor="middle" fill="#ff5252">양방향통신</text>
+  
+  <!-- Footer -->
+  <text x="400" y="400" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">통합된 프론트엔드와 각 구성요소 간의 양방향 통신 흐름</text>
+</svg>

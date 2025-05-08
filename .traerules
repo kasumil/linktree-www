@@ -1,0 +1,4 @@
+# Trae 고유 설정 예시
+remember_this_rule=true
+important_note=이 설정은 Trae가 항상 기억해야 합니다.
+language=ko
