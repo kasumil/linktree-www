@@ -33,7 +33,8 @@ export type ProfileData = {
 };
 
 export type ProjectModalProps = {
-  project: Project;
+  project: Project | null;
   isOpen: boolean;
+  onOpen: (project: Project) => void;
   onClose: () => void;
 };
