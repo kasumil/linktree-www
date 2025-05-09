@@ -1,10 +1,8 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  console.log(process.env.NEXT_PUBLIC_NODE_DOMAIN);
   try {
     const profileRes = await fetch(`${process.env.NEXT_PUBLIC_NODE_DOMAIN}/profile`);
-    console.log(profileRes);
     if (!profileRes.ok) {
       throw new Error(`프로필 API 호출 실패: ${profileRes.status}`);
     }
@@ -12,7 +10,7 @@ export async function GET() {
 
     const [categoryRes, snsRes] = await Promise.all([
       fetch(`${process.env.NEXT_PUBLIC_NODE_DOMAIN}/category`),
-      fetch(`${process.env.NEXT_PUBLIC_NODE_DOMAIN}/sns?id=${profile.id}`),
+      fetch(`${process.env.NEXT_PUBLIC_NODE_DOMAIN}/sns?id=${profile?.id}`),
     ]);
 
     if (!categoryRes.ok || !snsRes.ok) {

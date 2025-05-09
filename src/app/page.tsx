@@ -4,7 +4,6 @@ import AnimatedContent from "@/components/home/AnimatedContent";
 async function getProjects(): Promise<ProfileData> {
   const res = await fetch(`${process.env.NEXT_PUBLIC_INTERNAL_DOMAIN}/api/profile`, { 
     cache: "default",
-    next: { revalidate: 0 }
   });
 
   if (!res.ok) {

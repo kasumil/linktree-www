@@ -6,13 +6,13 @@ import ProjectModal from "@/components/ProjectModal";
 import useProjectModal from "@/store";
 import { Project } from "@/types/project";
 
-const ProjectsView = ({ projects }: Project) => {
-  const { project, isOpen, onClose } = useProjectModal();
+const ProjectsView = ({ projects }: { projects: Project[] }) => {
+  const { project, isOpen, onClose, onOpen } = useProjectModal();
 
   return (
     <>
       <ProjectList projects={projects} />
-      <ProjectModal project={project} isOpen={isOpen} onClose={onClose} />
+      <ProjectModal project={project} isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
     </>
   );
 };

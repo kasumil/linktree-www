@@ -1,9 +1,7 @@
 import React from 'react'
+import { SNS } from '@/types/project';
 
-interface SNS {
-    sns_url: string;
-    sns: string;
-}
+
 
 type Props = {
     sns: SNS;
@@ -39,13 +37,13 @@ function socialIcon(type: string) {
 function SocialComponents({ sns }: Props) {
   return (
     <a 
-      href={sns.sns_url} 
+      href={sns?.sns_url} 
       target="_blank" 
       rel="noopener noreferrer" 
       className="text-gray-400 hover:text-gray-500 transition-colors duration-200"
     >
-      <span className="sr-only">{sns.sns}</span>
-      {socialIcon(sns.sns)}
+      <span className="sr-only">{sns?.sns}</span>
+      {socialIcon(sns?.sns || '')}
     </a>
   )
 }

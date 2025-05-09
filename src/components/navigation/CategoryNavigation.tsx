@@ -17,7 +17,7 @@ interface Props {
 const CategoryNavigation = ({ categories }: Props) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-      {categories.map((category, index) => (
+      {categories?.map((category, index) => (
         <motion.div
           key={category.id}
           initial={{ opacity: 0, x: -50 }}

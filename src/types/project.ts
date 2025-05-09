@@ -6,17 +6,27 @@ export type Category = {
 
 export type Project = {
   id: number;
-  category_id: number;
+  category_id?: number;
   title: string;
   description: string;
-  media: { media_type: string; media_url: string }[];
+  period?: string;
+  techStack?: {
+    id: number;
+    name: string
+  }[];
+  content?: string;
+  githubUrl?: string;
+  link?: string;
+  link_show?: number;
+  img_sort?: number;
+  role?: string;
+  media?: { media_type: string; media_url: string }[];
 };
 
+
 export type SNS = {
-  id: number;
-  platform: string;
-  url: string;
-  icon?: string;
+  sns_url: string;
+  sns?: string | undefined;
 };
 
 export type Profile = {
@@ -35,6 +45,6 @@ export type ProfileData = {
 export type ProjectModalProps = {
   project: Project | null;
   isOpen: boolean;
-  onOpen: (project: Project) => void;
+  onOpen?: (project: Project) => void;
   onClose: () => void;
 };

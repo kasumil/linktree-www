@@ -13,7 +13,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
         <div
           key={project.id}
           className="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden border border-gray-200 dark:border-gray-700"
-          onClick={() => onOpen(project)}
+          onClick={() => onOpen && onOpen(project)}
         >
           <div className="flex flex-col md:flex-row items-center p-4 gap-4">
             <div className="flex flex-row md:flex-col gap-2 w-full md:w-32 md:h-32 justify-center items-center">
