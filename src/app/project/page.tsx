@@ -70,7 +70,7 @@ export default async function Project() {
                 <div className="p-6">
                   <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">{project?.title}</h2>
                   <div className="flex items-center text-gray-600 dark:text-gray-300 mb-4">
-                    <span className="mr-4">{project?.role}</span>
+                    {project?.role && <span className="mr-4">{project?.role}</span>}
                     {project?.role && project?.period && <span className="mr-4">|</span>}
                     <span>{project?.period}</span>
                   </div>
