@@ -2,7 +2,7 @@ import Image from "next/image";
 import Backbutton from "@/components/buttons/Backbutton";
 import type { Project } from "@/types/project";
 import { Suspense } from "react";
-
+import Loading from "@/components/Loading";
 
 async function GetProjects(): Promise<Project[]> {
   try {
@@ -23,7 +23,7 @@ export default async function Project() {
   const projects = await GetProjects();
 
   return (
-    <Suspense fallback={<>Loading...</>}>
+    <Suspense fallback={<Loading />}>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
         <main className="max-w-4xl mx-auto px-4 py-12">
           <div className="mb-8">
@@ -69,8 +69,14 @@ export default async function Project() {
                 </div>
                 <div className="p-6">
                   <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">{project?.title}</h2>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{project?.period}</p>
+                  <div className="flex items-center text-gray-600 dark:text-gray-300 mb-4">
+                    <span className="mr-4">{project?.role}</span>
+                    {project?.role && project?.period && <span className="mr-4">|</span>}
+                    <span>{project?.period}</span>
+                  </div>
                   <p className="text-gray-600 dark:text-gray-300 mb-6">{project?.description}</p>
+                  <h2 className="text-m font-semibold text-gray-900 dark:text-white mb-2">상세 내용</h2>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">{project?.content}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project?.techStack?.map((tech, index) => (
                       <span
