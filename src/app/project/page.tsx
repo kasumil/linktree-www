@@ -76,7 +76,7 @@ export default async function Project() {
                   </div>
                   <p className="text-gray-600 dark:text-gray-300 mb-6">{project?.description}</p>
                   <h2 className="text-m font-semibold text-gray-900 dark:text-white mb-2">상세 내용</h2>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">{project?.content}</p>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 whitespace-pre-wrap">{project?.content}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project?.techStack?.map((tech, index) => (
                       <span

@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev --turbopack  --port 3100",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --port 3100",
+    "docker-build": "docker build -t linktree-www:latest .",
     "lint": "next lint"
   },
   "dependencies": {
