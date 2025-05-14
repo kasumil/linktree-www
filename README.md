@@ -133,4 +133,4 @@ npm start
 
 프로젝트 링크: [https://github.com/kasumil/linktree-www.git](https://github.com/kasumil/linktree-www.git)
 
-docker buildx build --platform linux/amd64,linux/arm64 -t kasumill/linktree-www-nextjs:1.0.4 --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t kasumill/linktree-www-nextjs:1.0.5 --push .
