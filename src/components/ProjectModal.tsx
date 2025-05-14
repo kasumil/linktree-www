@@ -1,11 +1,21 @@
 "use client";
 
 import { ProjectModalProps } from "@/types/project";
+import { on } from "events";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 export default function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // unmounting effect & modal close
+    return () => {
+      if (isOpen) {
+        onClose();
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
