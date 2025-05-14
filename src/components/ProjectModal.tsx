@@ -23,11 +23,13 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
       document.addEventListener("keydown", handleEscapeKey);
+      window.addEventListener("beforeunload", onClose);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscapeKey);
+      window.removeEventListener("beforeunload", onClose);
     };
   }, [isOpen, onClose]);
 

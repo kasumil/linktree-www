@@ -10,6 +10,9 @@ const ProjectsView = ({ projects }: { projects: Project[] }) => {
   const { project, isOpen, onClose, onOpen } = useProjectModal();
 
   useEffect(() => {
+    if (isOpen) {
+      onClose();
+    }
     return () => {
       onClose();
     };
