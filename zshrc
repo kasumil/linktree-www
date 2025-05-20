@@ -1,0 +1,1 @@
+export CR_PAT=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
