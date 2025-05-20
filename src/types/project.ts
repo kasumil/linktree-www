@@ -17,6 +17,8 @@ export type Project = {
   content?: string;
   githubUrl?: string;
   link?: string;
+  project_show?: boolean;
+  project_link?: string;
   link_show?: number;
   img_sort?: number;
   role?: string;
