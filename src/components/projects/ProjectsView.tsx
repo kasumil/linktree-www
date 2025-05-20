@@ -1,31 +1,46 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import ProjectModal from "@/components/ProjectModal";
 import useProjectModal from "@/store";
 import { Project } from "@/types/project";
+import { motion } from "framer-motion";
 
 const ProjectsView = ({ projects }: { projects: Project[] }) => {
   const { project, isOpen, onClose, onOpen } = useProjectModal();
 
-  useEffect(() => {
-    if (isOpen) {
-      onClose();
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
     }
-    return () => {
-      onClose();
-    };
-  }, []);
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
 
   return (
     <div className="w-full">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
         {projects?.map((project) => (
-          <div
+          <motion.div
             key={project.id}
+            variants={item}
             className="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-md transition-all duration-300 h-full"
             onClick={() => onOpen && onOpen(project)}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             <div className="flex flex-col h-full">
               <div className="relative w-full h-48">
@@ -58,9 +73,9 @@ const ProjectsView = ({ projects }: { projects: Project[] }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
       <ProjectModal project={project} isOpen={isOpen} onClose={onClose} />
     </div>
   );

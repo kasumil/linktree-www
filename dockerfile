@@ -17,7 +17,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.ts ./
 COPY --from=builder /app/ecosystem.config.js ./
 
-EXPOSE 3100
+EXPOSE 3200
 ENV NODE_ENV=production
 
 # PM2-runtime 으로 프로세스 관리
