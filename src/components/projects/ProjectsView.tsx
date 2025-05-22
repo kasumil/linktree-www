@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import ProjectModal from "@/components/ProjectModal";
 import useProjectModal from "@/store";
@@ -9,6 +9,12 @@ import { motion } from "framer-motion";
 
 const ProjectsView = ({ projects }: { projects: Project[] }) => {
   const { project, isOpen, onClose, onOpen } = useProjectModal();
+
+  useEffect(() => {
+    return () => {
+      onClose();
+    };
+  }, [onClose]);
 
   const container = {
     hidden: { opacity: 0 },
