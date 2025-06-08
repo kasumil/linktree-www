@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 
 export default function ContactPage() {
@@ -15,14 +17,17 @@ export default function ContactPage() {
   return (
     <div className="container mx-auto max-w-lg px-4 py-16">
       <h1 className="text-3xl font-bold mb-8 text-foreground">Contact</h1>
-      <form onSubmit={handleSubmit} className="space-y-6 bg-background p-8 rounded-lg shadow border border-gray-200 dark:border-gray-700">
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-6 bg-background p-8 rounded-lg shadow border border-gray-200 dark:border-gray-700"
+      >
         <div>
           <label className="block mb-2 text-sm font-medium text-foreground">이름</label>
           <input
             type="text"
             className="w-full px-4 py-2 border rounded-md bg-background text-foreground border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary"
             value={name}
-            onChange={e => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
@@ -32,7 +37,7 @@ export default function ContactPage() {
             type="email"
             className="w-full px-4 py-2 border rounded-md bg-background text-foreground border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
@@ -42,12 +47,14 @@ export default function ContactPage() {
             className="w-full px-4 py-2 border rounded-md bg-background text-foreground border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary"
             rows={6}
             value={message}
-            onChange={e => setMessage(e.target.value)}
+            onChange={(e) => setMessage(e.target.value)}
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary w-full">메일 보내기</button>
+        <button type="submit" className="btn btn-primary w-full">
+          메일 보내기
+        </button>
       </form>
     </div>
   );
-} 
+}

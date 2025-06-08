@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ResumeData } from "@/types/resume";
 import CareerSection from "@/components/resume/CareerSection";
 import SkillsSection from "@/components/resume/SkillsSection";
@@ -31,7 +30,6 @@ export default async function Resume() {
     <Suspense fallback={<Loading />}>
       <div className="bg-background text-foreground">
         <main className="max-w-4xl mx-auto px-4 py-12">
-
           <CareerSection career={career} />
           <SkillsSection skills={skills} />
           <EducationSection education={education} />

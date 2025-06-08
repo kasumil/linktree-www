@@ -1,4 +1,3 @@
-import Backbutton from "@/components/buttons/Backbutton";
 import type { Project } from "@/types/project";
 import { Suspense } from "react";
 import Loading from "@/components/Loading";
@@ -36,9 +35,7 @@ export default async function ProjectPage() {
           <div className="space-y-8">
             <div>
               <h1 className="text-3xl font-bold text-foreground">개인 프로젝트</h1>
-              <p className="mt-2 text-foreground/80">
-                개발하며 진행했던 프로젝트들을 소개합니다.
-              </p>
+              <p className="mt-2 text-foreground/80">개발하며 진행했던 프로젝트들을 소개합니다.</p>
             </div>
 
             <ProjectsView projects={projects} />

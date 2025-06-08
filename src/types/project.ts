@@ -12,8 +12,9 @@ export type Project = {
   period?: string;
   techStack?: {
     id: number;
-    name: string
+    name: string;
   }[];
+  technologies?: string[];
   content?: string;
   githubUrl?: string;
   link?: string;
@@ -24,7 +25,6 @@ export type Project = {
   role?: string;
   media?: { media_type: string; media_url: string }[];
 };
-
 
 export type SNS = {
   sns_url: string;
