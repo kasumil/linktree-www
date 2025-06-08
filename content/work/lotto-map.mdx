@@ -1,0 +1,16 @@
+---
+title: 로또판매점 지도
+tech: ["Next.js", "TypeScript", "Vercel", "Prisma", "Mapbox GL JS"]
+role: 개인 100%
+date: 2024-02
+---
+## Problem
+지역별 판매점 데이터를 주기적으로 스크레이핑해야 했음
+
+## Solution
+- cron + Prisma로 ETL
+- mapbox-gl dynamic import로 CSR 지연 최소화
+
+## Outcome
+- 로딩 5.2 s → 2.1 s (Lighthouse)
+- 배운 점 : ISR + 지도 라이브러리 번들링 이슈 해결 

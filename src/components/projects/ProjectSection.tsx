@@ -13,7 +13,7 @@ const ProjectSection = (project: Project) => {
   return (
     <div
         key={project.id}
-        className="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-md transition-all duration-300 transform hover:scale-105"
+        className="bg-background text-foreground rounded-lg shadow-sm overflow-hidden border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-md transition-all duration-300 transform hover:scale-105"
         >
         <div className="flex items-center p-4">
             <div className="relative w-24 h-24 flex-shrink-0">
@@ -31,10 +31,10 @@ const ProjectSection = (project: Project) => {
             )}
             </div>
             <div className="ml-4 flex-1">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                <h3 className="text-lg font-semibold text-foreground">
                     {project.title}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2">
+                <p className="text-sm text-foreground/80 line-clamp-2">
                     {project.description}
                 </p>
                 {project.domain && (
@@ -42,7 +42,7 @@ const ProjectSection = (project: Project) => {
                     href={project.domain}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-blue-600 dark:text-blue-400 hover:underline mt-2 inline-block"
+                    className="text-sm text-primary hover:underline mt-2 inline-block"
                     >
                     프로젝트 보기
                     </a>

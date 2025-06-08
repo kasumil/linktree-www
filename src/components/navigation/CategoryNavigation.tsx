@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 
 const CATEGORY_HREF_MAP = {
   이력서: "/resume",
-  "사내 프로젝트": "/company-project",
-  개인프로젝트: "/project",
+  "사내 프로젝트": "/work",
+  개인프로젝트: "/projects",
 } as const;
 
 interface Props {

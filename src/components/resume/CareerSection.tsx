@@ -16,7 +16,7 @@ export default function CareerSection({ career }: Props) {
             transition={{ duration: 0.5 }}
             className="mb-12"
         >
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">경력</h2>
+            <h2 className="text-2xl font-semibold text-foreground mb-6">경력</h2>
             <div className="space-y-6">
                 {career?.map((item, index) => (
                     <motion.div
@@ -25,11 +25,11 @@ export default function CareerSection({ career }: Props) {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-200 dark:border-gray-700"
+                        className="bg-background text-foreground rounded-lg shadow-sm p-6 border border-gray-200 dark:border-gray-700"
                     >
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{item.company_name}</h3>
-                        <p className="text-gray-600 dark:text-gray-300 mb-2">{item.position} | {item.period}</p>
-                        <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
+                        <h3 className="text-xl font-semibold text-foreground mb-2">{item.company_name}</h3>
+                        <p className="text-foreground/80 mb-2">{item.position} | {item.period}</p>
+                        <ul className="list-disc list-inside text-foreground/80 space-y-2">
                             {item.tasks.map((task: string, index: number) => (
                                 <motion.li
                                     key={index}
