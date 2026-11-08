@@ -59,13 +59,13 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                   <div key={index} className="flex-shrink-0 w-full h-100 relative snap-center">
                     {media.media_type === "image" ? (
                       <Image
-                        src={media.media_url}
+                        src={media.media_url.replace(/[`\s]/g, "")}
                         alt={`project-media-${index}`}
                         fill
                         className="h-full object-contain rounded-lg"
                       />
                     ) : media.media_type === "video" ? (
-                      <video src={media.media_url} controls className="w-full h-full object-cover rounded-lg" />
+                      <video src={media.media_url.replace(/[`\s]/g, "")} controls className="w-full h-full object-cover rounded-lg" />
                     ) : null}
                   </div>
                 ))}
