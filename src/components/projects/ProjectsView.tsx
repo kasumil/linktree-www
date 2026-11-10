@@ -1,5 +1,6 @@
 "use client";
 
+import { normalizeMediaUrl } from '@/utils/media-url.mjs';
 import React, { useEffect } from "react";
 import Image from "next/image";
 import ProjectModal from "@/components/ProjectModal";
@@ -29,9 +30,9 @@ const ProjectsView = ({ projects }: { projects: Project[] }) => {
           >
             <div className="flex flex-col h-full">
               <div className="relative w-full h-48">
-                {project.media && project.media.length > 0 ? (
+                {project.media && project.media.length > 0 && normalizeMediaUrl(project.media[0].media_url) ? (
                   <Image
-                    src={project.media[0].media_url.replace(/[`\s]/g, "")}
+                    src={normalizeMediaUrl(project.media[0].media_url)}
                     alt={project.title + " 이미지"}
                     fill
                     className="object-cover"

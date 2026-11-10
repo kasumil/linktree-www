@@ -1,5 +1,6 @@
 "use client";
 
+import { normalizeMediaUrl } from '@/utils/media-url.mjs';
 import Image from "next/image";
 import { Project } from "@/types/project";
 import useProjectModal from "@/store";
@@ -20,9 +21,9 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
               {project.media && project.media.length > 0 ? (
                 project.media.map((media, idx) => (
                   <div key={idx} className="relative w-24 h-24">
-                    {media.media_type === "image" ? (
+                    {media.media_type === "image" && normalizeMediaUrl(media.media_url) ? (
                       <Image
-                        src={media.media_url.replace(/[`\s]/g, "")}
+                        src={normalizeMediaUrl(media.media_url)}
                         alt={project.title + " 이미지"}
                         fill
                         className="object-cover rounded-lg"
