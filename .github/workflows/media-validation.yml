@@ -1,0 +1,22 @@
+name: Media URL validation
+on:
+  pull_request:
+  push:
+    branches: [fix/preserve-media-url-paths, fix/linktree-security-dependencies]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.4
+          cache: npm
+      - run: npm ci
+      - run: npm audit --omit=dev
+      - run: npm run lint
+      - run: node --test tests/*.test.mjs
+      - run: npx tsc --noEmit
+      - run: npm run build

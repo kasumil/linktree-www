@@ -1,0 +1,14 @@
+name: Manual image build regression
+on:
+  pull_request:
+  push:
+    branches: [fix/linktree-manual-build-safety]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash -n build.sh scripts/test-manual-build.sh
+      - run: bash scripts/test-manual-build.sh

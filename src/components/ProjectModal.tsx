@@ -1,5 +1,6 @@
 "use client";
 
+import { normalizeMediaUrl } from '@/utils/media-url.mjs';
 import { ProjectModalProps } from "@/types/project";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -32,6 +33,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
+  const validMedia = project?.media?.filter(media => ["image", "video"].includes(media.media_type) && normalizeMediaUrl(media.media_url)) ?? [];
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -53,19 +55,19 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
           </div>
 
           <div className="relative h-fit mb-6">
-            {project?.media ? (
+            {validMedia.length > 0 ? (
               <div className="flex overflow-x-auto gap-4 snap-x pb-2">
-                {project?.media?.map((media, index) => (
+                {validMedia.map((media, index) => (
                   <div key={index} className="flex-shrink-0 w-full h-100 relative snap-center">
-                    {media.media_type === "image" ? (
+                    {media.media_type === "image" && normalizeMediaUrl(media.media_url) ? (
                       <Image
-                        src={media.media_url}
+                        src={normalizeMediaUrl(media.media_url)}
                         alt={`project-media-${index}`}
                         fill
                         className="h-full object-contain rounded-lg"
                       />
-                    ) : media.media_type === "video" ? (
-                      <video src={media.media_url} controls className="w-full h-full object-cover rounded-lg" />
+                    ) : media.media_type === "video" && normalizeMediaUrl(media.media_url) ? (
+                      <video src={normalizeMediaUrl(media.media_url)} controls className="w-full h-full object-cover rounded-lg" />
                     ) : null}
                   </div>
                 ))}
